@@ -1,5 +1,6 @@
 import { NestFactory } from '@nestjs/core';
 import { type NestExpressApplication } from '@nestjs/platform-express';
+import * as compression from 'compression';
 import helmet from 'helmet';
 
 import { AppModule } from './app.module';
@@ -18,11 +19,12 @@ async function bootstrap() {
 
   // issue conflicts with apollo
   app.use(helmet());
-  // app.use(rateLimit({
+  app.use(compression());
+  app.enableVersioning();
 
-  // }))
   await app.listen(3000);
 
+  // webpack-hmr
   if (module.hot) {
     module.hot.accept();
     module.hot.dispose(() => app.close());

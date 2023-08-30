@@ -19,3 +19,9 @@ Cannot find module '@nestjs/common'
 @typescript-eslint/member-delimiter-style 和 prettier/prettier 存在冲突
 注释掉一个就好了
 ```
+
+### error 4
+```
+希望声明一个全局类型，但又不希望通过 global.d.ts 来引入
+可以通过 'source-map-support/register' 让任何ts文件变成 .d.ts 的功能
+```
