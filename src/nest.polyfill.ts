@@ -15,6 +15,10 @@ declare global {
   };
   export type JSONArray = JSONObject[];
 
+  export type ResBody = { hash: string };
+  export type ResInfo = { statusCode: number };
+  export type ResError = { message: string };
+
   export type Uuid = string & { _uuidBrand: undefined };
   // eslint-disable-next-line @typescript-eslint/no-explicit-any,@typescript-eslint/no-redundant-type-constituents
   export type Todo = any & { _todoBrand: undefined };

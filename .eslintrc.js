@@ -366,6 +366,7 @@ module.exports = {
     '@typescript-eslint/no-unsafe-assignment': 'off',
     'unicorn/prefer-top-level-await': 'off',
     '@typescript-eslint/member-delimiter-style': 'off',
+    '@typescript-eslint/consistent-type-definitions': 'off',
 
     // temp
     'unicorn/no-empty-file': 'off',
