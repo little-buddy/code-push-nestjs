@@ -134,6 +134,44 @@ export class FileUpload {
     });
   }
 
+  qiniuUpload(key: string, filePath: string): Promise<string | void> {
+    return new Promise((resolve, reject) => {
+      const formUploader = new qiniu.form_up.FormUploader(
+        new qiniu.conf.Config(),
+      );
+      const putExtra = new qiniu.form_up.PutExtra();
+      formUploader.putFile(
+        getUploadTokenQiniu(key),
+        key,
+        filePath,
+        putExtra,
+        (respErr?: Error, respBody?: ResBody, respInfo?: ResInfo) => {
+          if (respErr) {
+            reject(new Error(`uploadFileToQiniu putFile: ${respErr.message}`));
+
+            return;
+          }
+
+          if ((respInfo as ResInfo).statusCode === 200) {
+            this.logger.debug(
+              `uploadFileToQiniu putFile\n respBody: ${JSON.stringify(
+                respBody,
+              )}\n respInfo: ${JSON.stringify(respInfo)}`,
+            );
+
+            resolve(respBody?.hash);
+
+            return;
+          }
+
+          reject(
+            new Error(`Qiniu upload response error: ${respInfo?.statusCode}`),
+          );
+        },
+      );
+    });
+  }
+
   async uploadFileToQiniu(
     key: string,
     filePath: string,
@@ -145,46 +183,11 @@ export class FileUpload {
         return fileStat;
       }
 
-      return new Promise((resolve, reject) => {
-        const formUploader = new qiniu.form_up.FormUploader(
-          new qiniu.conf.Config(),
-        );
-        const putExtra = new qiniu.form_up.PutExtra();
-        formUploader.putFile(
-          getUploadTokenQiniu(key),
-          key,
-          filePath,
-          putExtra,
-          (respErr?: Error, respBody?: ResBody, respInfo?: ResInfo) => {
-            if (respErr) {
-              reject(
-                new Error(`uploadFileToQiniu putFile: ${respErr.message}`),
-              );
+      const filekey = await this.qiniuUpload(key, filePath);
 
-              return;
-            }
-
-            if ((respInfo as ResInfo).statusCode === 200) {
-              this.logger.debug(
-                `uploadFileToQiniu putFile\n respBody: ${JSON.stringify(
-                  respBody,
-                )}\n respInfo: ${JSON.stringify(respInfo)}`,
-              );
-
-              resolve((respBody as ResBody).hash);
-
-              return;
-            }
-
-            reject(
-              new Error(
-                'Qiniu upload response error:' +
-                  (respInfo as ResInfo).statusCode,
-              ),
-            );
-          },
-        );
-      });
+      if (filekey) {
+        return filekey;
+      }
     } catch {
       this.logger.error('Qiniu upload file failed.');
     }
