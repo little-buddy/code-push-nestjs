@@ -15,6 +15,12 @@
 并且一些环境配置存在历史原因，索性重建，一些基建配置套用上面的模版
 ```
 
+## env
+### node
+```
+support node >=12
+```
+
 ## Description
 
 [Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.

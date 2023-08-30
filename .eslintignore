@@ -1,1 +1,3 @@
 lint-staged.config.js
+webpack-hmr.config.js
+dist/

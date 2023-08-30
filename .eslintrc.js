@@ -5,9 +5,9 @@ module.exports = {
     tsconfigRootDir: __dirname,
     sourceType: 'module',
   },
-  ignorePatterns: ['.eslintrc.js'],
   plugins: [
-    '@typescript-eslint/eslint-plugin','prettier',
+    '@typescript-eslint/eslint-plugin',
+    'prettier',
     'simple-import-sort',
     'import',
     'unicorn',
@@ -363,8 +363,11 @@ module.exports = {
     'promise/always-return': 'off',
     'canonical/no-unused-exports': 'off',
     'import/no-unresolved': 'off',
+    '@typescript-eslint/no-unsafe-assignment': 'off',
+    'unicorn/prefer-top-level-await': 'off',
+    '@typescript-eslint/member-delimiter-style': 'off',
 
     // temp
-    'unicorn/no-empty-file':'off'
+    'unicorn/no-empty-file': 'off',
   },
 };
