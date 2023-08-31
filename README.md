@@ -21,6 +21,9 @@
 support node >=12
 ```
 
+## Feature
+- [x]  ali-oss instead of aliyun-sdk
+
 ## Description
 
 [Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
