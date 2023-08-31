@@ -2,7 +2,7 @@
   "compilerOptions": {
     "module": "CommonJS",
     "moduleResolution": "node",
-    "esModuleInterop": true,
+    // "esModuleInterop": true, // support import * as module from 'module'
     // "declaration": true,
     "removeComments": true,
     "emitDecoratorMetadata": true,

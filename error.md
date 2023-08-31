@@ -24,4 +24,35 @@ Cannot find module '@nestjs/common'
 ```
 希望声明一个全局类型，但又不希望通过 global.d.ts 来引入
 可以通过 'source-map-support/register' 让任何ts文件变成 .d.ts 的功能
+
+对于 ts 的alias 还有一种方式可以引入
+```
+
+### error 5
+```
+跑测试用例的过程中出现了差错,因为 HttpService 的引入依赖问题
+```
+[通过 mock 的形式解决](https://trilon.io/blog/advanced-testing-strategies-with-mocks-in-nestjs)
+```JS
+import { createMock } from '@golevelup/ts-jest'
+
+const module = await Test.createTestingModule({
+  providers: [
+    MainService
+  ]
+})
+.useMocker(() => createMock())
+.compile()
+```
+
+## 亮点
+### ts alias 通过ts引入
+```TS
+// yarn add module-alias
+import 'module-alias/register';
+import { addAliases } from 'module-alias';
+
+addAliases({
+  '@common' : `${__dirname}/common`
+})
 ```

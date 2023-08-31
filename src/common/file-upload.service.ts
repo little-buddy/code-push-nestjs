@@ -10,8 +10,8 @@ import * as qiniu from 'qiniu';
 import { getUploadTokenQiniu, QINIU_BUCKET_MANAGER } from './utils/qiniu';
 
 @Injectable()
-export class FileUpload {
-  private readonly logger = new Logger(FileUpload.name);
+export class FileUploadService {
+  private readonly logger = new Logger(FileUploadService.name);
 
   constructor(private readonly httpService: HttpService) {}
 
@@ -92,7 +92,9 @@ export class FileUpload {
     return key;
   }
 
-  uploadFileToS3(key: string, filePath: string) {}
+  uploadFileToS3(key: string, filePath: string) {
+    return 's3';
+  }
 
   uploadFileToOSS(key: string, filePath: string) {}
 
