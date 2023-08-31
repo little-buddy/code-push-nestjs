@@ -1,8 +1,8 @@
 import { NestFactory } from '@nestjs/core';
 import { type NestExpressApplication } from '@nestjs/platform-express';
-import * as compression from 'compression';
+import compression from 'compression';
 import helmet from 'helmet';
-import * as morgan from 'morgan';
+import morgan from 'morgan';
 
 import { AppModule } from './app.module';
 
