@@ -2,29 +2,33 @@
 
 ## ⭐️ 起源
 
-`lisong/code-push-server` 年久失修，所以借着学习nestjs机会打算重构一下
+`lisong/code-push-server` 年久失修
+
+所以借着学习`nestjs`机会打算重构一下
 
 ## 项目结构
 
-一部分基建是继承于[NarHakobyan/awesome-nest-boilerplate](https://github.com/NarHakobyan/awesome-nest-boilerplate)
+一部分基建是继承于 [NarHakobyan/awesome-nest-boilerplate](https://github.com/NarHakobyan/awesome-nest-boilerplate)
 
 ### 为什么不直接用那个模版而是选择新建？
 
 ```
-因为 awesome-nest-boilerplate 的热更新没有使用 moudle.hot
-并且一些环境配置存在历史原因，索性重建，一些基建配置套用上面的模版
+因为 awesome-nest-boilerplate 没有使用nest-cli的处理项目
+并且一些环境配置存在历史原因
+索性重建，一些基建配置沿用了上面的模版
 ```
 
-## env
+## 🌲 env 
 ### node
 ```
 support node >=12
 ```
 
-## Feature
+## 😯 Feature
 - [x]  ali-oss instead of aliyun-sdk
+- [x]  @aws-sdk/client-s3 instead of aws-sdk
 
-## Description
+## 📚 Description
 
 [Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
 
@@ -60,7 +64,7 @@ $ yarn run test:e2e
 $ yarn run test:cov
 ```
 
-## Support
+## 💪🏻 Support
 
 Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
 

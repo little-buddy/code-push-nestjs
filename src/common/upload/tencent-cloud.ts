@@ -1,10 +1,12 @@
 /* eslint-disable @typescript-eslint/naming-convention */
 import COS from 'cos-nodejs-sdk-v5';
 
-const SecretId = process.env.TXC_ACCESS_KEY_ID as string;
-const SecretKey = process.env.TXC_SECRET_ACCESS_KEY as string;
-const Bucket = process.env.TXC_BUCKET_NAME as string;
-const Region = process.env.TXC_REGION as string;
+const {
+  TXC_ACCESS_KEY_ID: SecretId,
+  TXC_SECRET_ACCESS_KEY: SecretKey,
+  TXC_BUCKET_NAME: Bucket,
+  TXC_REGION: Region,
+} = process.env as ObjectValue<string>;
 
 export const uploadFileToTencentCloud = (
   key: string,

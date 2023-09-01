@@ -116,6 +116,7 @@ export class ApiConfigService {
     };
   }
 
+  // custom
   get aliyunOssConfig() {
     return {
       accessKeyId: this.getString('OSS_ACCESS_KEY_ID'),
@@ -125,6 +126,8 @@ export class ApiConfigService {
       prefix: this.getString('OSS_PREFIX'),
     };
   }
+
+  // *************************************************************
 
   get documentationEnabled(): boolean {
     return this.getBoolean('ENABLE_DOCUMENTATION');

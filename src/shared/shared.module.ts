@@ -1,8 +1,6 @@
 import { Global, Module, type Provider } from '@nestjs/common';
 
-import { AliyunSerice } from './services/aliyun.service';
-
-const providers: Provider[] = [AliyunSerice];
+const providers: Provider[] = [];
 
 @Global()
 @Module({
