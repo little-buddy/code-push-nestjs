@@ -32,6 +32,9 @@ support node >=12
 
 [Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
 
+![image](https://github.com/little-buddy/code-push-nestjs/assets/30054881/ae2f5984-8f18-4f0d-af83-4c5c7ce51848)
+
+
 ## Installation
 
 ```bash
