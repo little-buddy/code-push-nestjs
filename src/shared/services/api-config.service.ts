@@ -55,7 +55,6 @@ export class ApiConfigService {
   get fallbackLanguage(): string {
     return this.getString('FALLBACK_LANGUAGE');
   }
-
   // get postgresConfig(): TypeOrmModuleOptions {
   //   let entities = [
   //     __dirname + '/../../modules/**/*.entity{.ts,.js}',
@@ -156,6 +155,10 @@ export class ApiConfigService {
     return {
       port: this.getString('PORT'),
     };
+  }
+
+  get storageType() {
+    return this.getString('STORAGE_TYPE');
   }
 
   private get(key: string): string {
